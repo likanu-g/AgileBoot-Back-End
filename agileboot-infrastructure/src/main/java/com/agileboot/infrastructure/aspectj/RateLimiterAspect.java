@@ -40,9 +40,6 @@ public class RateLimiterAspect {
         log.info("当前限流方法:" + method.toGenericString());
 
         switch (rateLimiter.cacheType()) {
-            case REDIS:
-                redisRateLimitChecker.check(rateLimiter);
-                break;
             case Map:
                 mapRateLimitChecker.check(rateLimiter);
                 return;
